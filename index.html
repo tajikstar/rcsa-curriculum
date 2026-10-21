@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RCSA Curriculum | River City Science Academy</title>
+</head>
+<body>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root{
+  --hl:#fff1a8;
+  --hl-ring:#e8c33a;
+  --hl-tag:#f2c94c;
+  --hl-tag-ink:#3a2e00;
+  --navy:#12264a;
+  --navy-2:#1c3563;
+  --copper:#c4642f;
+  --copper-soft:#f6e3d6;
+  --bg:#f7f8fb;
+  --surface:#ffffff;
+  --ink:#16213a;
+  --muted:#56617a;
+  --line:#dde2ec;
+  --on-navy:#f2f5fb;
+  --on-navy-muted:#b8c3da;
+  --chip:#e8edf6;
+  --focus:#2f6fe4;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --navy:#0c1a34; --navy-2:#162a50;
+    --copper:#e58a55; --copper-soft:#3a2518;
+    --bg:#0f1524; --surface:#172036;
+    --ink:#e9edf6; --muted:#a5b0c7; --line:#2a3552;
+    --on-navy:#f2f5fb; --on-navy-muted:#aab6cf;
+    --chip:#222d47; --focus:#7fa8ff;
+    --hl:#4a3f12; --hl-ring:#c9a227; --hl-tag:#e2b93b; --hl-tag-ink:#2a2100;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --navy:#0c1a34; --navy-2:#162a50;
+  --copper:#e58a55; --copper-soft:#3a2518;
+  --bg:#0f1524; --surface:#172036;
+  --ink:#e9edf6; --muted:#a5b0c7; --line:#2a3552;
+  --on-navy:#f2f5fb; --on-navy-muted:#aab6cf;
+  --chip:#222d47; --focus:#7fa8ff;
+    --hl:#4a3f12; --hl-ring:#c9a227; --hl-tag:#e2b93b; --hl-tag-ink:#2a2100;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);line-height:1.12;text-wrap:balance;margin:0}
+h2{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-.01em}
+h3{font-size:21px;font-weight:700}
+p{margin:0}
+.wrap{max-width:1160px;margin:0 auto;padding-inline:20px}
+.eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--copper);font-weight:500}
+section{padding-block:72px}
+.sec-head{display:grid;gap:12px;max-width:680px;margin-bottom:36px}
+.sec-head p{color:var(--muted);font-size:18px}
+
+/* sub nav */
+.subnav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--surface);border-bottom:1px solid var(--line)}
+.subnav .wrap{display:flex;align-items:center;gap:24px;min-height:56px;overflow-x:auto}
+.subnav strong{font-family:var(--display);font-size:16px;white-space:nowrap}
+.subnav nav{display:flex;gap:4px;margin-left:auto}
+.subnav nav a{text-decoration:none;font-size:15px;font-weight:600;color:var(--muted);padding:8px 12px;border-radius:6px;white-space:nowrap}
+.subnav nav a:hover{color:var(--ink);background:var(--chip)}
+
+/* buttons */
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 20px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;border:2px solid transparent;transition:transform .15s ease,background .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--copper);color:#fff}
+.btn-ghost{border-color:currentColor}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:hover{transform:none}}
+
+/* hero */
+.hero{background:var(--navy);color:var(--on-navy);padding-block:64px 72px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:32px 32px;pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(38px,6vw,66px);font-weight:800;letter-spacing:-.02em;margin-block:14px 18px}
+.hero h1 span{color:var(--copper)}
+.hero .lede{font-size:19px;color:var(--on-navy-muted);max-width:560px;margin-bottom:28px}
+.hero .btn-ghost{color:var(--on-navy)}
+.photo{border-radius:12px;background:var(--navy-2);border:1px dashed rgba(255,255,255,.28);aspect-ratio:4/3;max-width:100%;display:grid;place-items:center;text-align:center;padding:20px;color:var(--on-navy-muted);font-size:14px}
+.photo b{display:block;font-family:var(--mono);font-weight:500;letter-spacing:.08em;text-transform:uppercase;font-size:12px;color:var(--copper);margin-bottom:6px}
+
+/* glance */
+.glance{background:var(--surface);border-bottom:1px solid var(--line);padding-block:40px}
+.tiles{display:grid;grid-template-columns:repeat(6,1fr);gap:0}
+.tile{padding:6px 20px;border-left:1px solid var(--line);display:grid;gap:6px;align-content:start}
+.tile:first-child{border-left:0;padding-left:0}
+.tile strong{font-family:var(--display);font-size:22px;font-weight:800;line-height:1.15;color:var(--navy)}
+:root[data-theme="dark"] .tile strong{color:var(--ink)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tile strong{color:var(--ink)}}
+.tile span{font-size:14.5px;color:var(--muted);line-height:1.45}
+.fine{font-size:13px;color:var(--muted);margin-top:22px}
+
+/* journey */
+.journey{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+.stage{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:26px;display:grid;gap:14px;align-content:start}
+@supports (grid-template-rows:subgrid){.stage{grid-row:span 4;grid-template-rows:subgrid;row-gap:14px}}
+.stage ul{align-content:start}
+.stage .grades{font-family:var(--display);font-size:44px;font-weight:800;color:var(--copper);line-height:1}
+.stage ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;border-top:1px solid var(--line);padding-top:14px}
+.stage li{display:flex;gap:10px;font-size:15.5px}
+.stage li::before{content:"";flex:0 0 8px;height:8px;margin-top:9px;border-radius:2px;background:var(--copper)}
+.stage p{color:var(--muted);font-size:16px}
+.journey-fine{margin-top:20px;font-size:14px;color:var(--muted)}
+
+/* programs */
+.programs{background:var(--surface);border-block:1px solid var(--line)}
+.prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.prog{border:1px solid var(--line);border-radius:10px;padding:22px;display:flex;flex-direction:column;gap:10px;background:var(--bg)}
+.prog .chip{align-self:flex-start;font-family:var(--mono);font-size:12px;letter-spacing:.06em;background:var(--chip);color:var(--ink);padding:3px 9px;border-radius:999px}
+.prog p{color:var(--muted);font-size:15.5px;flex:1}
+.prog a{font-weight:700;color:var(--copper);text-decoration:none;font-size:15px}
+.prog a:hover{text-decoration:underline}
+
+/* compare */
+.table-box{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:640px}
+th,td{text-align:left;padding:18px 20px;border-bottom:1px solid var(--line);vertical-align:top;font-size:16px}
+thead th{font-family:var(--display);font-size:19px;background:var(--navy);color:var(--on-navy)}
+thead th:first-child{width:18%}
+tbody th{font-family:var(--mono);font-weight:500;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
+.note{margin-top:16px;color:var(--muted);font-size:15.5px}
+
+/* action */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gallery .photo{background:var(--chip);border-color:var(--line);color:var(--muted)}
+
+/* change highlights */
+.chg-tag{display:none}
+.show-changes .chg{background:var(--hl);box-shadow:0 0 0 3px var(--hl),0 0 0 4px var(--hl-ring);border-radius:6px;color:var(--ink)}
+.show-changes .chg *{color:inherit}
+.show-changes .chg a{color:var(--copper)}
+.show-changes .chg-tag{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.04em;line-height:1.4;background:var(--hl-tag);color:var(--hl-tag-ink);padding:2px 7px;border-radius:4px;margin-bottom:4px;align-self:flex-start;white-space:normal}
+.show-changes .stage li.chg{display:block;padding:2px 4px}
+.stage li.chg .chg-tag{display:none}
+.show-changes .stage li.chg::before{display:none}
+.show-changes .chg .btn-primary{color:#fff}
+.show-changes .toolkit .chg a{color:var(--ink)}
+.show-changes .stage li.chg .chg-tag{display:block;width:fit-content}
+.legend{background:var(--hl);border-bottom:1px solid var(--hl-ring);color:var(--ink)}
+.legend .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;padding-block:12px;font-size:15px}
+.legend strong{font-family:var(--display)}
+.legend button{margin-left:auto;font:inherit;font-weight:700;font-size:14px;padding:7px 14px;border-radius:6px;border:2px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+.legend .swatch{display:inline-block;width:14px;height:14px;border-radius:3px;background:var(--hl);box-shadow:0 0 0 1px var(--hl-ring);vertical-align:-2px;margin-right:6px}
+/* toolkit + faq */
+.tile-link,.card-link{font-weight:700;font-size:14.5px;color:var(--copper);text-decoration:none}
+.tile-link:hover,.card-link:hover{text-decoration:underline}
+.connect{margin-bottom:8px}
+.tk-note{font-size:14.5px;color:var(--muted);margin-top:10px}
+.toolkit a.tk-main{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 4px;text-decoration:none;font-weight:600}
+.toolkit a.tk-main .tk-arrow{color:var(--copper);font-family:var(--body);font-size:16px;font-weight:700}
+.tk-multi{display:grid;gap:8px;padding:14px 4px}
+.tk-multi .chg-tag{justify-self:start}
+.toolkit a.tk-main .tk-label{font-family:var(--body);font-size:17px;font-weight:600;letter-spacing:0;color:var(--ink)}
+.toolkit a.tk-main .tk-label .chg-tag{display:none}
+.show-changes .toolkit a.tk-main .tk-label .chg-tag{display:table;margin-bottom:6px}
+.tk-name{font-weight:600}
+.tk-campus{display:flex;flex-wrap:wrap;gap:6px}
+.toolkit .tk-campus a{display:inline-block;padding:3px 10px;border:1px solid var(--line);border-radius:999px;font-size:13.5px;font-weight:600;text-decoration:none;color:var(--ink);background:var(--surface)}
+.toolkit .tk-campus a:hover{border-color:var(--copper);color:var(--copper)}
+.show-changes .toolkit .chg .tk-campus a{color:var(--ink)}
+.tk-group{font-family:var(--mono);font-size:12.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:22px 0 6px}
+.two{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px}
+.toolkit{list-style:none;margin:0;padding:0;display:grid;border-top:1px solid var(--line)}
+.toolkit li{border-bottom:1px solid var(--line)}
+.toolkit a{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 4px;text-decoration:none;font-weight:600}
+.toolkit a:hover{color:var(--copper)}
+.toolkit a span{font-family:var(--mono);font-size:12px;color:var(--muted);font-weight:500}
+.faq{display:grid;gap:0;border-top:1px solid var(--line)}
+.qa{padding-block:18px;border-bottom:1px solid var(--line);display:grid;gap:6px}
+.qa h3{font-size:18.5px}
+.qa p{color:var(--muted);font-size:16px}
+
+/* next steps */
+.next{background:var(--copper-soft)}
+.next .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:28px}
+.next p{color:var(--muted);font-size:18px;margin-top:10px;max-width:520px}
+.next .btn-ghost{color:var(--ink)}
+
+@media (max-width:960px){
+  .hero .wrap,.two{grid-template-columns:1fr}
+  .tiles{grid-template-columns:repeat(3,1fr);row-gap:24px}
+  .tile:nth-child(4){border-left:0;padding-left:0}
+  .journey{grid-template-columns:1fr}
+  .stage:nth-child(1),.stage:nth-child(2){margin-top:0}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .prog-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  section{padding-block:52px}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .tile{border-left:0;padding-left:0;padding-right:8px}
+  .subnav nav{margin-left:0}
+  .prog-grid{grid-template-columns:1fr}
+}
+</style>
+
+<div class="subnav">
+  <div class="wrap">
+    <strong>RCSA Curriculum</strong>
+    <nav aria-label="On this page">
+      <a href="#journey">Grades</a>
+      <a href="#programs">Programs</a>
+      <a href="#compare">Compare</a>
+      <a href="#toolkit">Parents</a>
+      <a href="#visit">Visit</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Curriculum · River City Science Academy</div>
+      <h1>From Kindergarten Labs to <span>College Research</span></h1>
+      <p class="lede">A K-12 STEM pathway built on Knowledge, Integrity and Compassion. At RCSA, students build strong foundations, accelerate in middle school, and graduate ready for college and career.</p>
+      <div class="btns">
+        <a class="btn btn-primary" href="#journey">Explore by Grade</a>
+        <a class="btn btn-ghost" href="#programs">Signature Programs</a>
+        <a class="btn btn-ghost" href="https://rivercityscience.org/open-house-school-tour/">Schedule a Tour</a>
+      </div>
+    </div>
+    <div class="photo" role="img" aria-label="Photo placeholder: RCSA students working on a hands-on STEM project">
+      <div><b>Photo</b>RCSA students on a hands-on STEM project<br>(use an existing site photo)</div>
+    </div>
+  </div>
+</header>
+
+<div class="glance" aria-label="RCSA at a glance">
+  <div class="wrap">
+    <div class="tiles">
+      <div class="tile"><strong>#1 STEM Charter</strong><span>Best STEM Charter School in Jacksonville, Niche</span></div>
+      <div class="tile"><strong>K-12</strong><span>One connected STEM pathway from kindergarten to graduation</span></div>
+      <div class="tile "><strong>HS Credit in Middle School</strong><span>Algebra I, Geometry, Biology and Foreign Language</span></div>
+      <div class="tile"><strong>AP &amp; AP Capstone</strong><span>College-level courses and the AP Capstone Diploma</span></div>
+      <div class="tile"><strong>AA Degree</strong><span>Start with Pre-Early College in middle school; earn it through Early College in high school</span></div>
+      <div class="tile"><strong>Competitive STEM</strong><span>Science Olympiad, Math Olympiad and Robotics teams</span><span><a class="tile-link" href="https://rcsaintracoastal.org/academics/stem">Learn more about STEM →</a></span></div>
+    </div>
+    <p class="fine">Ranking source: Niche.</p>
+  </div>
+</div>
+
+<main>
+  <section id="journey">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">K-12 Journey</div>
+        <h2>Your Child's Path at RCSA</h2>
+        <p>Each stage builds on the last, from early curiosity to college-level work.</p>
+      </div>
+      <div class="journey">
+        <article class="stage">
+          <div class="grades">K-5</div>
+          <h3>Building the STEM Foundation</h3>
+          <p>Students build strong reading, writing and math skills while exploring science through hands-on projects. Writing is part of every math and science block, so students learn to explain their thinking. In our Innovation Labs, students practice coding and engineering through building, circuits and design challenges.</p>
+          <ul>
+            <li>Integrated literacy and STEM</li>
+            <li>Innovation Labs (iLabs)</li>
+            <li>Hands-on, project-based learning</li>
+            <li>Gifted education</li>
+            <li>Character education</li>
+          </ul>
+        </article>
+        <article class="stage">
+          <div class="grades">6-8</div>
+          <h3>The Acceleration Bridge</h3>
+          <p>Middle school students take on advanced coursework and can begin earning high school credit. <span>Through our gifted enrichment model, students are included in advanced cohorts.</span></p>
+          <ul>
+            <li>Electives in technology, foreign languages and fine arts, plus Speech and Debate and Model U.N.</li>
+            <li>Science Olympiad, Math Olympiad and Robotics</li>
+            <li>Gifted enrichment with advanced cohorts</li>
+            <li>High school credit: Algebra I, Geometry, Biology, Foreign Language</li>
+            <li>Pre-Early College</li>
+            <li>Character education</li>
+          </ul>
+        </article>
+        <article class="stage">
+          <div class="grades">9-12</div>
+          <h3>Pathways to College</h3>
+          <p>High school students choose a rigorous path that fits their goals, from AP research to earning an AA degree before graduation. Every student is supported by the College Mentorship Program.</p>
+          <ul>
+            <li>Advanced Placement (AP) and AP Capstone</li>
+            <li>Early College (AA degree)</li>
+            <li>Elite Scholars Program (ESP)</li>
+            <li>College Mentorship Program (CMP)</li>
+            <li>Electives: Computer Science, Robotics, Web Design, Creative Writing, Psychology, Spanish, Turkish</li>
+            <li>Character education</li>
+          </ul>
+        </article>
+      </div>
+      <p class="journey-fine">Program offerings may vary by campus based on student interest and availability. Contact your school for details.</p>
+    </div>
+  </section>
+
+  <section id="programs" class="programs">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Signature Programs</div>
+        <h2>Programs That Challenge Every Learner</h2>
+        <p>Each program prepares students for college and career. <span> Cards now run in grade order.</span></p>
+      </div>
+      <div class="prog-grid">
+        <article class="prog "><span class="chip">Grades K-12</span><h3>Character Education</h3><p>Character education is part of every grade. Students are challenged to be their best through Knowledge, Integrity and Compassion.</p><a href="https://rivercityscience.org/character-education/">Learn More →</a></article>
+        <article class="prog "><span class="chip">Grades K-8</span><h3>Gifted Education</h3><p>RCSA follows Florida's Framework for K-12 Gifted Learners.</p><a href="https://www.fldoe.org/file/5660/k12giftedlearners.pdf">Read Florida's Framework (PDF) →</a></article>
+        <article class="prog "><span class="chip">Grades 6-8</span><h3>High School Credit in Middle School</h3><p>Qualified middle school students can earn high school credit in Algebra I, Geometry, Biology and Foreign Language.</p><a href="https://rcsamhs.org/academics-mhs.html">Learn More →</a></article>
+        <article class="prog "><span class="chip">Grades 6-12</span><h3>Academic Teams</h3><p>Science Olympiad, Math Olympiad and Robotics teams turn classroom learning into real-world problem-solving.</p><a href="https://rivercityscience.org/rcsa-academic-teams/">Learn More →</a></article>
+        <article class="prog "><span class="chip">Grades 8-12</span><h3>Pre-Early &amp; Early College</h3><p>Middle school students begin college-level work through Pre-Early College. In high school, students continue through Early College, where they are able to earn an AA degree. Academic fees are included.</p><a href="https://rcsamhs.org/students/senior-center/early-college-opportunities.html">Learn More →</a></article>
+        <article class="prog"><span class="chip">Grades 9-12</span><h3>Advanced Placement (AP)</h3><p>College-level courses that build academic skills and can earn college credit.</p><a href="https://rcsamhs.org/academics-mhs.html">Learn More →</a></article>
+        <article class="prog"><span class="chip">Grades 10-12</span><h3>AP Capstone</h3><p>Two years of research through AP Seminar and AP Research, ending in an independent research paper and oral defense. Students can earn the AP Capstone Diploma.</p><a href="https://rcsamhs.org/academics-mhs.html">Learn More →</a></article>
+        <article class="prog"><span class="chip">Grades 9-12</span><h3>Elite Scholars Program (ESP)</h3><p>A blend of honors and AP coursework for students preparing for careers in engineering, medicine, law and business.</p><a href="https://rcsamhs.org/academics-mhs/esp-elite-scholars-program.html">Learn More →</a></article>
+        <article class="prog"><span class="chip">Grades 9-12</span><h3>College Mentorship Program (CMP)</h3><p>Each student is guided by a core team (advisor, cluster dean and instructor), with SAT/ACT preparation and interview training.</p><a href="https://rivercityscience.org/college-mentorship-program/">Learn More →</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="compare">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Compare High School Pathways</div>
+        <h2>Which Path Fits Your Student?</h2>
+      </div>
+      <div class="table-box">
+        <table>
+          <thead>
+            <tr><th scope="col"><span class="sr" style="position:absolute;left:-9999px">Feature</span></th><th scope="col">AP Capstone</th><th scope="col">Early College</th><th scope="col">Elite Scholars Program</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Focus</th><td>Research, writing and presentation</td><td>College coursework and credit</td><td>Pre-professional preparation</td></tr>
+            <tr><th scope="row">Great for</th><td>Students who love deep research</td><td>Students who want a head start on college</td><td>Future engineers, doctors, lawyers and business leaders</td></tr>
+            <tr><th scope="row">Students earn</th><td>AP Capstone Diploma</td><td>AA degree</td><td>Honors and AP credit</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Students can combine pathways. Talk with your school counselor to plan the right mix.</p>
+    </div>
+  </section>
+
+  <section id="action" class="programs">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Curriculum in Action</div>
+        <h2>Learning by Doing</h2>
+        <p>RCSA students learn by doing: in labs, on competition teams and through research.</p>
+      </div>
+      <div class="gallery">
+        <div class="photo" role="img" aria-label="Current site photo 1"><div><b>Photo 1</b>Current site photo</div></div>
+        <div class="photo" role="img" aria-label="Current site photo 2"><div><b>Photo 2</b>Current site photo</div></div>
+        <div class="photo" role="img" aria-label="Current site photo 3"><div><b>Photo 3</b>Current site photo</div></div>
+        <div class="photo" role="img" aria-label="Current site photo 4"><div><b>Photo 4</b>Current site photo</div></div>
+        <div class="photo" role="img" aria-label="Current site photo 5"><div><b>Photo 5</b>Current site photo</div></div>
+        <div class="photo" role="img" aria-label="Current site photo 6"><div><b>Photo 6</b>Current site photo</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="toolkit">
+    <div class="wrap two">
+      <div>
+        <div class="sec-head">
+          <div class="eyebrow">Parent Toolkit</div>
+          <h2>Everything in One Place</h2>
+        </div>
+        <span style="display:inline-block;padding:4px"><a class="btn btn-primary connect" href="https://rivercityscience.org/rcsa-connect/">Log in to RCSA Connect</a></span>
+        <p class="tk-note">Some resources differ by campus. Choose your campus where shown.</p>
+        <h3 class="tk-group"><span>Plan Ahead</span> </h3>
+        <ul class="toolkit">
+          <li><a class="tk-main" href="https://rcsamhs.org/images/RCSA-Middle-High-Course-Catalog-2025-2026.pdf"><span class="tk-label">Course Catalog (High School)</span> <span class="tk-arrow" aria-hidden="true">→</span></a></li>
+          <li><a class="tk-main" href="https://rcsamhs.org/students/senior-center/course-pathaways.html"><span class="tk-label">High School Course Pathways</span> <span class="tk-arrow" aria-hidden="true">→</span></a></li>
+          <li><a class="tk-main" href="https://rcsamhs.org/students/senior-center/early-college-opportunities.html"><span class="tk-label">Early College Opportunities</span> <span class="tk-arrow" aria-hidden="true">→</span></a></li>
+          <li ><a class="tk-main" href="https://rcsaelementary.org/docs/26-27%20Student-Parent-Handbook-RCSA.pdf"><span class="tk-label">Student/Parent Handbook (All Campuses)</span> <span class="tk-arrow" aria-hidden="true">→</span></a></li>
+          
+          <li><div class="tk-multi"><span class="tk-name">Summer Projects</span><span class="tk-campus"><a href="https://rcsamhs.org/parents/important-documents/summer-work-packets.html">Middle-High</a><a href="https://rcsainnovation.org/index.php/students-rcsai/summer-work-packets">Innovation</a><a href="https://rcsamandarin.org/students/summer-work-packets">Mandarin</a><a href="https://rcsaintracoastal.org/students/summer-work-packets">Intracoastal</a><a href="https://rcsasoutheast.org/students/supply-lists-summer-packets">Southeast</a></span></div></li>
+        </ul>
+        <h3 class="tk-group"><span>Everyday Resources</span> </h3>
+        <ul class="toolkit">
+          <li><a class="tk-main" href="https://www.duvalschools.org/page/calendar2627/"><span class="tk-label">Academic Calendar</span> <span class="tk-arrow" aria-hidden="true">→</span></a></li>
+          <li><div class="tk-multi"><span class="tk-name">Supply Lists</span><span class="tk-campus"><a href="https://rcsaelementary.org/students/supply-lists">Elementary</a><a href="https://rcsamhs.org/parents/important-documents/supply-lists.html">Middle-High</a><a href="https://rcsainnovation.org/index.php/students-rcsai/supply-list">Innovation</a><a href="https://rcsamandarin.org/students/supply-list">Mandarin</a><a href="https://rcsaintracoastal.org/students/supply-lists">Intracoastal</a><a href="https://rcsasoutheast.org/students/supply-lists-summer-packets">Southeast</a></span></div></li>
+          <li><div class="tk-multi"><span class="tk-name">Clubs</span><span class="tk-campus"><a href="https://rcsaelementary.org/students/clubs">Elementary</a><a href="https://rcsamhs.org/parents/clubs.html">Middle-High</a><a href="https://rcsainnovation.org/index.php/students-rcsai/clubs">Innovation</a><a href="https://rcsamandarin.org/students/clubs">Mandarin</a><a href="https://rcsaintracoastal.org/students/clubs">Intracoastal</a></span></div></li>
+          <li><div class="tk-multi"><span class="tk-name">Curriculum &amp; Resources</span><span class="tk-campus"><a href="https://rcsaelementary.org/images/Curriculum-Resources-website-and-new-student-orientation.pdf">Elementary</a><a  href="https://rcsamhs.org/images/RCSA-Middle-High-Course-Catalog-2025-2026.pdf">Middle-High</a><a href="https://rcsainnovation.org/images/Curriculum_Snippets.pdf">Innovation</a><a href="https://rcsamandarin.org/media/attachments/2026/01/30/curriculum-learning-portals.pdf">Mandarin</a><a href="https://rcsaintracoastal.org/images/RCSA-Intracoastal-Curriculum-and-Resouces.pdf">Intracoastal</a><a href="https://rcsasoutheast.org/images/docs/curriculum.pdf">Southeast</a></span></div></li>
+          <li><div class="tk-multi"><span class="tk-name">Clever Learning Portals</span><span class="tk-campus"><a href="https://rcsaelementary.org/students/clever-learning-resources">Elementary</a><a href="https://rcsamhs.org/academics-mhs/clever-learningresources.html">Middle-High</a><a href="https://rcsainnovation.org/index.php/students-rcsai/clever-learning-resources">Innovation</a><a href="https://rcsamandarin.org/students/learning-learning-resources">Mandarin</a><a href="https://rcsaintracoastal.org/students/learning-portals">Intracoastal</a><a href="https://rcsasoutheast.org/students/learning-portals">Southeast</a></span></div></li>
+        </ul>
+        <h3 class="tk-group"><span>Testing</span> </h3>
+        <ul class="toolkit">
+          <li><a class="tk-main" href="https://www.fldoe.org/core/fileparse.php/20102/urlt/2627FASTGrd310FS.pdf"><span class="tk-label">FAST Fact Sheet</span> <span class="tk-arrow" aria-hidden="true">→</span></a></li>
+          <li><a class="tk-main" href="https://www.fldoe.org/file/5662/2627SciSSEOCFactSheet.pdf"><span class="tk-label">EOC Fact Sheet</span> <span class="tk-arrow" aria-hidden="true">→</span></a></li>
+          <li><a class="tk-main" href="https://www.fldoe.org/core/fileparse.php/5663/urlt/2627StatewideAssessmentSched.pdf"><span class="tk-label">Statewide Testing Calendar</span> <span class="tk-arrow" aria-hidden="true">→</span></a></li>
+        </ul>
+      </div>
+      <div id="faq">
+        <div class="sec-head">
+          <div class="eyebrow">FAQ</div>
+          <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq">
+          <div class="qa"><h3>Is there an entrance exam?</h3><p>No. As a public charter school, RCSA admits students by lottery. After enrollment, placement testing helps place each student in the right level.</p></div>
+          <div class="qa"><h3>How can my child earn college credit?</h3><p>Middle school students can begin with Pre-Early College. High school students can take AP courses and exams, and are able to earn an AA degree through Early College.</p></div>
+          <div class="qa"><h3>Can middle school students earn high school credit?</h3><p>Yes. Qualified middle school students can earn high school credit in Algebra I, Geometry, Biology and Foreign Language.</p></div>
+          <div class="qa"><h3>What extra help is available?</h3><p> Teachers hold Student Hours for personalized help. Times vary by campus, so check with your school.</p></div>
+          <div class="qa"><h3>How does RCSA support student well-being?</h3><p>Along with academic support, RCSA provides school counseling and wellness resources so students stay healthy while they take on challenging work. <span> Our character education program challenges students to be their best in and out of the classroom.</span></p></div>
+          <div class="qa"><h3>Is transportation provided?</h3><p>Busing is available only at designated hubs to and from the high school campus. Families are responsible for all other transportation to and from school. Transportation is provided for off-site field trips. Contact your campus for details specific to your student.</p></div>
+          <div class="qa"><h3>How much homework should we expect?</h3><p>About 15-40 minutes a night in grades K-2, 45-90 minutes in grades 3-7, and up to 3 hours in grade 8 and above, depending on the courses taken.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit" class="next">
+    <div class="wrap">
+      <div>
+        <h2>See RCSA in Action</h2>
+        <p>Visit a campus, meet our teachers, and find the right path for your child.</p>
+      </div>
+      <div class="btns">
+        <a class="btn btn-primary" href="https://rivercityscience.org/open-house-school-tour/">Schedule a Tour</a>
+        <a class="btn btn-ghost" href="https://rivercityscience.org/schools/">Explore Our Schools</a>
+        <a class="btn btn-ghost" href="https://rivercityscience.org/apply-now/">Apply Now</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+
+</body>
+</html>
